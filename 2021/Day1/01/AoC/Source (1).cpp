@@ -6,37 +6,91 @@
 #include <algorithm>
 #include <bitset>
 #include <chrono>
-// #define k_width 10//92
-// #define k_size 10//91
-// #define k_size 7
+
 using namespace std;
 
 #include "Header.h""
 
 constexpr bool debug = false;
 
-int isLarger(const int x, const int y)
+void openFile(std::ifstream & f_inFile, bool debug)
+{
+	if (debug)
+	{
+		f_inFile.open("test.txt");
+	}
+	else
+	{
+		f_inFile.open("input.txt");
+	}
+	return;
+}
+
+template <typename T> inline T isLarger(const T x, const T y)
 {	// is X larger than Y?
 	return (x > y);
 }
 
+template <typename T> inline vector<T> readLine(std::ifstream& f_inFile)
+{
+	vector<T> input;
+	T in = 0;
+
+	while (f_inFile >> in)
+	{
+		input.push_back(in);
+	}
+	return input;
+}
+
+
+template <typename T> inline T part1(vector<T> input)
+{
+	T out = 0;
+
+	for (auto i = 1; i < input.size(); i++)
+	{
+		const auto y = input[i - 1];
+		const auto x = input[i];
+
+		out += isLarger(x, y);
+	}
+
+	return out;
+}
+
+template <typename T> inline T part2(vector<T> input)
+{
+	T out = 0;
+
+	for (auto i = 3; i < input.size(); i++)
+	{
+
+		const auto a = input[(i - 1) - 2];
+		const auto b = input[(i - 1) - 1];
+		const auto c = input[(i - 1)];
+
+		const auto A = a + b + c;
+
+		const auto x = input[i - 2];
+		const auto y = input[i - 1];
+		const auto z = input[i];
+
+		const auto B = x + y + z;
+
+		out += isLarger(B, A);
+	}
+
+	return out;
+}
 
 int main()
 {
 	// ----------------------------------------
 	// Read input text file
 	std::ifstream f_inFile;
-	if (debug)
-	{
-		f_inFile.open("test.txt");
-	}
-	else 
-	{
-		f_inFile.open("input.txt");
-	}
+	openFile(f_inFile, debug);
 	
-	
-
 	vector<int> input;
 	int in;
 	while (f_inFile >> in)
@@ -45,36 +99,12 @@ int main()
 	}
 
 	// ----------------------------------------
-	int count = 0;
-	for (int i = 1; i < input.size(); i++)
-	{
-		const int y = input[i - 1];
-		const int x = input[i];
-
-		count += isLarger(x, y);
-	}
+	const auto result_part1 = part1(input); // 1451
+	cout << "Part 1: " << result_part1 << endl;
 
 
-	cout << "Part 1: " << count << endl;
+	const auto result_part2 = part2(input); // 1395
+	cout << "Part 2: " << result_part2 << endl;
 
-	int count_2 = 0;
-	for (int i = 3; i < input.size(); i++)
-	{
-		
-		const int a = input[(i-1) - 2];
-		const int b = input[(i-1) - 1];
-		const int c = input[(i-1)];
 
-		const int A = a + b + c;
-
-		const int x = input[i - 2];
-		const int y = input[i - 1];
-		const int z = input[i];
-
-		const int B = x + y + z;
-
-		count_2 += isLarger(B, A);
-	}
-
-	cout << "Part 2: " << count << endl;
 }

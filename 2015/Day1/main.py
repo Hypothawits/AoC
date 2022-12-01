@@ -10,14 +10,11 @@ CURRENT_DAY = "1"
 RUN_TEST = 0
 RUN_PART_TWO = 1
 
-ANSWER_ONE = 69836
-ANSWER_TWO = 207968
-
-TEST_ANSWER_ONE = 24000
-TEST_ANSWER_TWO = 45000
+TEST_ANSWER_ONE = -3
+TEST_ANSWER_TWO = 1
 
 
-working_directory = os.getcwd()  + "\\2022\\Day" + CURRENT_DAY + "\\"
+working_directory = os.getcwd()  + "\\2015\\Day" + CURRENT_DAY + "\\"
 
 start_clock = time.perf_counter()
 
@@ -34,7 +31,7 @@ if RUN_TEST:
     if RUN_PART_TWO:
         test_result_two = part_two(file_path)
         if TEST_ANSWER_TWO == test_result_two:
-            print("Part Two Results Match!: " + str(test_result_two))
+            print("Part Two Results Match!  :: " + str(test_result_two))
         else:
             print("Oops! you got it wrong! Expecting: " + str(TEST_ANSWER_TWO) \
                                        + " but I got: " + str(test_result_two))
@@ -45,15 +42,9 @@ else:
     result = part_one(file_path)
     print("Part One Results: " + str(result))
 
-    if(ANSWER_ONE != 'a'):
-            print("Part One result correct: " + str(ANSWER_ONE == result) )
-
     if RUN_PART_TWO:
         result_two = part_two(file_path)
         print("Part Two Results: " + str(result_two))
-        if(ANSWER_TWO != 'a'):
-            print("Part Two result correct: " + str(ANSWER_TWO == result_two) )
-
     else:
         pass
 
