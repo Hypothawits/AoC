@@ -6,15 +6,15 @@ from solve_parts import part_one, part_two
 
 print("Program Start")
 
-CURRENT_DAY = "4"
+CURRENT_DAY = "5"
 RUN_TEST = 0
-RUN_PART_TWO = 0
+RUN_PART_TWO = 1
 
-ANSWER_ONE = 'a'
-ANSWER_TWO = 'a'
+ANSWER_ONE = "SHQWSRBDL"
+ANSWER_TWO = "CDTQZHBRS"
 
-TEST_ANSWER_ONE = 2
-TEST_ANSWER_TWO = 4
+TEST_ANSWER_ONE = "CMZ"
+TEST_ANSWER_TWO = "MCD"
 
 
 working_directory = os.getcwd()  + "\\2022\\Day" + CURRENT_DAY + "\\"

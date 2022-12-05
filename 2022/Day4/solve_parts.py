@@ -57,9 +57,9 @@ def part_two(file_path):
             count += 1
         elif first_start >= second_start and first_end <= second_end:
             count += 1
-        elif first_start <= second_start and second_start<= first_end:
+        elif first_start <= second_start and second_start <= first_end:
             count += 1
-        elif first_start <= second_end and second_end<= first_end:
+        elif first_start <= second_end and second_end <= first_end:
             count += 1
         else:
             pass
