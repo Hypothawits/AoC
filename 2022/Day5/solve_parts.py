@@ -7,7 +7,7 @@ def open_file(file_path):
     return lines
 
 def part_one(file_path):
-    """ Day one part one solution """
+    """ Day n part one solution """
 
     lines = open_file(file_path)
 
@@ -59,7 +59,7 @@ def part_one(file_path):
     return result_str
 
 def part_two(file_path):
-    """ Day one part two solution """
+    """ Day n part two solution """
 
     lines = open_file(file_path)
 

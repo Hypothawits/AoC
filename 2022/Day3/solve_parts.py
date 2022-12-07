@@ -16,7 +16,7 @@ def search_bags(bag1, bag2, bag3):
                             return item_b1
 
 def part_one(file_path):
-    """ Day one part one solution """
+    """ Day n part one solution """
 
     lines = open_file(file_path)
 
@@ -50,7 +50,7 @@ def part_one(file_path):
     return total_score
 
 def part_two(file_path):
-    """ Day one part two solution """
+    """ Day n part two solution """
 
     lines = open_file(file_path)
 
