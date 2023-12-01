@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Fri Dec  1 21:34:50 2023
+[*]
+[dumpfile] "/workspaces/SystemVerilog_Dev/AoC/2023/day_one/day.vcd"
+[dumpfile_mtime] "Fri Dec  1 21:22:46 2023"
+[dumpfile_size] 10303
+[savefile] "/workspaces/SystemVerilog_Dev/AoC/2023/day_one/save.gtkw"
+[timestart] 0
+[size] 1972 1036
+[pos] -255 -32
+*-14.585590 35000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb_day.
+[treeopen] tb_day.dut.
+[sst_width] 214
+[signals_width] 192
+[sst_expanded] 1
+[sst_vpaned_height] 305
+@28
+tb_day.dut.clk
+tb_day.dut.rst
+tb_day.dut.first_num_found
+@820
+tb_day.dut.input_char[7:0]
+tb_day.dut.first_num[7:0]
+tb_day.dut.last_num[7:0]
+tb_day.dut.result_out[15:0]
+@29
+tb_day.dut.cfn_inst.char_found_flag
+@100002028
+^1 /workspaces/SystemVerilog_Dev/AoC/2023/day_one/enum_map.gtkw
+tb_day.dut.cfn_inst.current_state
+@820
+tb_day.dut.cfn_inst.num_out[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
