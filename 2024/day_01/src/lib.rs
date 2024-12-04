@@ -1,7 +1,7 @@
 use std::error::Error;
 use std::{fs, result};
 pub struct Config {
-    pub query: String,
+    pub part: String,
     pub file_path: String,
 }
 
@@ -10,21 +10,15 @@ impl Config {
         if args.len() < 3 {
             return Err("not enough arguments");
         }
-        let query = args[1].clone();
+        let part = args[1].clone();
         let file_path = args[2].clone();
 
-        Ok(Config { query, file_path })
+        Ok(Config { part, file_path })
     }
 }
 
-pub fn run(config: Config) -> Result<(),Box<dyn Error>>{
-    let contents = fs::read_to_string(config.file_path)?;
-
-    println!("- Input Text -");
-
-    println!("With text: \n{contents}");
-
-    println!("- End Input -");
+pub fn run_part_1(file_path: String) -> Result<(),Box<dyn Error>>{
+    let contents = fs::read_to_string(file_path)?;
 
     // create a vector to hold our data
     let mut list_1: Vec<i32> = Vec::new();
@@ -67,8 +61,42 @@ pub fn run(config: Config) -> Result<(),Box<dyn Error>>{
         sum_p1 = sum_p1 + dif_abs_u64;
 
     }
-    println!("Part 1: {sum_p1}");
+    println!("Results Part 1: {sum_p1}");
 
+    Ok(())
+}
+
+pub fn run_part_2(file_path: String) -> Result<(),Box<dyn Error>>{
+    let contents = fs::read_to_string(file_path)?;
+
+    // create a vector to hold our data
+    let mut list_1: Vec<i32> = Vec::new();
+    let mut list_2: Vec<i32> = Vec::new();
+
+    // Convert text input into two int vectors
+    for line in contents.lines(){
+        // split the string into two strings: list1_item and list2_item
+        let parts_string = line.split_whitespace();
+        let parts_vec: Vec<&str> = parts_string.collect();
+
+        let part_1_int = parts_vec[0].parse::<i32>().unwrap();
+        let part_2_int = parts_vec[1].parse::<i32>().unwrap();
+
+        list_1.push(part_1_int);
+        list_2.push(part_2_int);
+    }
+        // println!("{part_1_int} , {part_2_int}");
+        // println!( " " );
+        // convert each item to a int
+        // list1_item.parse::<i32>().unwrap();
+        // list2_item.parse::<i32>().unwrap();
+
+        // add to a vector
+
+    // Sort each of the lists: small to large
+    list_1.sort();
+    list_2.sort();
+    let list_length = list_1.len();
     // Part 2
     println!("-- Part 2 --");
     let mut sum_p2: u64 = 0;
@@ -89,10 +117,7 @@ pub fn run(config: Config) -> Result<(),Box<dyn Error>>{
         sum_p2 = sum_p2 + (item_result as u64);
     }
 
-    println!("Part 2: {sum_p2}");
-
-
-
+    println!("Results Part 2: {sum_p2}");
     Ok(())
 }
 

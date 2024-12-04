@@ -6,7 +6,7 @@ use std::fs;
 use day_01::Config;
 
 fn main() {
-    println!("--- Day 1 ---");
+    println!("--- Day 2 ---");
 
     let args: Vec<String> = env::args().collect();
     let config = Config::build(&args).unwrap_or_else(|err| {
